@@ -1,3 +1,9 @@
-<h1>
-  {{title}}
-</h1>
+<kendo-chart [categoryAxis]="{categories: years}" (seriesClick)="chartItemClicked($event)">
+  <kendo-chart-title text="Student Exam Results"></kendo-chart-title>
+  <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+  <kendo-chart-tooltip></kendo-chart-tooltip>
+  <kendo-chart-series>
+    <kendo-chart-series-item *ngFor="let student of students" type="bar" [data]="student.results" [name]="student.name">
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>
